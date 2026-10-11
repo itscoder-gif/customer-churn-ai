@@ -9,7 +9,7 @@ import streamlit as st
 
 ROOT = Path(__file__).parent
 MODEL_PATH = ROOT / "models" / "churn_model_bundle.joblib"
-DATA_PATH = ROOT / "data" / "telco_customer_churn.csv"
+DATA_PATH = ROOT / "data" / "Telco-Customer-Churn.csv"
 PAGES = ["Overview", "Predict Customer", "Customer Insights", "Model Lab"]
 
 st.set_page_config(
@@ -201,7 +201,7 @@ def render_overview(data):
     st.write("")
     st.subheader("Portfolio snapshot")
     if data is None:
-        st.info("No customer dataset is loaded. Upload the IBM Telco Customer Churn CSV in the sidebar, or place it at `data/telco_customer_churn.csv`, to populate portfolio metrics and charts.")
+        st.info("No customer dataset is loaded. Upload the IBM Telco Customer Churn CSV in the sidebar, or place it at `data/Telco-Customer-Churn.csv`, to populate portfolio metrics and charts.")
         values = [("Customers", "—"), ("Churn rate", "—"), ("Avg. monthly charges", "—"), ("Avg. tenure", "—")]
     else:
         count = len(data)
@@ -317,7 +317,7 @@ def render_insights(data, bundle):
     st.markdown('<div class="eyebrow">Patterns behind retention</div>', unsafe_allow_html=True)
     st.title("Customer Insights")
     if data is None:
-        st.info("Upload a CSV in the sidebar or add `data/telco_customer_churn.csv`. Charts below use the supplied dataset only; no sample statistics are shown.")
+        st.info("Upload a CSV in the sidebar or add `data/Telco-Customer-Churn.csv`. Charts below use the supplied dataset only; no sample statistics are shown.")
     else:
         left, right = st.columns(2, gap="large")
         with left:
